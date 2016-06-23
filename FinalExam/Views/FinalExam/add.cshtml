@@ -1,0 +1,170 @@
+﻿
+@{
+    ViewBag.Title = "add";
+}
+
+<h2>新增員工資料</h2>
+
+
+<html>
+
+<head>
+
+
+</head>
+<body>
+
+    @using (Html.BeginForm("add", "FinalExam", FormMethod.Post))
+    {
+        <table style="width:100%" border="1" >
+            <tr>
+                <td>員工編號</td>
+                <td><input type="text" name="EmpID" value="@ViewBag.EmpID" class="text" readonly="readonly" /></td>
+            </tr>
+
+            <tr>
+                <td>姓名</td>
+                <td>
+                    <input type="text" name="EmpName" class="text" />
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>姓名</td>
+                <td>
+                    <input type="text" name="EmpLastName" class="text" />
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>職稱</td>
+                <td>
+                    <select name="Option" class="select">
+                        <option>請選擇職位名稱</option>
+                        @foreach (var item in (List<FinalExam.Models.Employees>)ViewBag.EmpName)
+                        {
+                            <option value="@item.Country">@item.Country</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>稱謂</td>
+                <td>
+                    <input type="text" name="Title" class="text" />
+                </td>
+
+            </tr>
+           
+            <tr>
+                <td>任職日期</td>
+                <td><input type="date" name="AppliDate" class="date" /></td>
+            </tr>
+
+            <tr>
+                <td>生日</td>
+                <td><input type="date" name="EmpDate" /></td>
+                
+            </tr>
+            <tr>
+                <td>國家</td>
+                <td>
+                    <select name="TitleCountry" class="select">
+                        <option>請選擇國家</option>
+                        @foreach (var item in (List<FinalExam.Models.Employees>)ViewBag.Position)
+                        {
+                            <option value="@item.Country">@item.Country</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>城市</td>
+                <td>
+                    <select name="City" class="select">
+                        <option>請選擇城市</option>
+                        @foreach (var item in (List<FinalExam.Models.Employees>)ViewBag.Position)
+                        {
+                            <option value="@item.City">@item.City</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>地址</td>
+                <td><input type="text" name="Address" class="text" /></td>
+            </tr>
+           
+            <tr>
+                <td>電話</td>
+                <td><input type="text" name="Phone" class="text" /></td>
+            </tr>
+
+            <tr>
+                <td>性別</td>
+                <td>
+                    <select name="Gender" class="select">
+                        <option>請選擇性別</option>
+                        @foreach (var item in (List<FinalExam.Models.Employees>)ViewBag.Position)
+                        {
+                            <option value="@item.Gender">@item.Gender</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>直屬主管</td>
+                <td>
+                    <select name="Supervesion" class="select">
+                        <option>請選擇直屬主管</option>
+                        @foreach (var item in (List<FinalExam.Models.Employees>)ViewBag.Position)
+                        {
+                            <option value="@item.Title">@item.Title</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+
+        
+            <tr>
+                <td>月薪</td>
+                <td><input type="text" name="MonthSalary" class="text" /></td>
+            </tr>
+            <tr>
+                
+                <td>年薪</td>
+                <td><input type="text" name="YearSalary" class="text" /></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td colspan="3"><input type="submit" value="存檔" class="btn" /><input type="button" value="回前一頁" onclick="goback()" class="btn" /></td>
+            </tr>
+
+
+        </table>
+
+    }
+</body>
+
+
+
+</html>
+
+
+<script type="text/javascript">
+
+    function goback()
+    {
+        history.back();
+    }
+
+
+</script>
